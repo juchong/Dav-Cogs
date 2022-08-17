@@ -20,19 +20,31 @@ class AutoRoler(commands.Cog):
         pass  # This cog stores no EUD
 
     def __init__(self):
+        self.bot = bot
         self.config = Config.get_conf(self, identifier=300920211119)
         default_guild = {
             "enabled": False,
             "roles": [],
+            "rules": False,
         }
         self.config.register_guild(**default_guild)
 
     @commands.Cog.listener()
-    async def on_member_join(self, member):
-        data = await self.config.guild(member.guild).all()
-        if not data["enabled"]:
-            return
-        await member.add_roles(*[member.guild.get_role(role_id) for role_id in data["roles"]])
+    if self.config.guild(ctx.guild).rules():
+        async def on_member_update(self, before, after):
+            try:
+                if before.bot or after.bot
+                    return
+                else:
+                    if before.pending == True:
+                        if after.pending == False:
+                                await member.add_roles(*[member.guild.get_role(role_id) for role_id in data["roles"]])
+    else:
+        async def on_member_join(self, member):
+            data = await self.config.guild(member.guild).all()
+            if not data["enabled"]:
+                return
+            await member.add_roles(*[member.guild.get_role(role_id) for role_id in data["roles"]])
 
     @commands.group()
     async def autorole(self, ctx):
@@ -80,3 +92,15 @@ class AutoRoler(commands.Cog):
         """Disable autorole"""
         await self.config.guild(ctx.guild).enabled.set(False)
         await ctx.send(_("AutoRoler disabled"))
+
+    @autorole.command()
+    async def enablerules(self, ctx):
+        """Enable autorole wait for rules"""
+        await self.config.guild(ctx.guild).rules.set(True)
+        await ctx.send(_("AutoRoler waiting for rules to be accepted enabled"))
+
+    @autorole.command()
+    async def disablerules(self, ctx):
+        """Disable autorole wait for rules"""
+        await self.config.guild(ctx.guild).rules.set(False)
+        await ctx.send(_("AutoRoler waiting for rules to be accepted disabled"))
