@@ -11,34 +11,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: redgettext 3.3\n"
 
-#: autorole\autoroler.py:47
+#: autorole\autoroler.py:59
 msgid "Role already in autorole list"
 msgstr ""
 
-#: autorole\autoroler.py:50
+#: autorole\autoroler.py:62
 msgid "{} added to autorole list"
 msgstr ""
 
-#: autorole\autoroler.py:57
+#: autorole\autoroler.py:69
 msgid "Role not in autorole list"
 msgstr ""
 
-#: autorole\autoroler.py:60
+#: autorole\autoroler.py:72
 msgid "{} removed from autorole list"
 msgstr ""
 
-#: autorole\autoroler.py:67
+#: autorole\autoroler.py:79
 msgid "No roles in autorole list"
 msgstr ""
 
-#: autorole\autoroler.py:70
+#: autorole\autoroler.py:82
 msgid "Autorole list: {}"
 msgstr ""
 
-#: autorole\autoroler.py:76
+#: autorole\autoroler.py:88
 msgid "AutoRoler enabled"
 msgstr ""
 
-#: autorole\autoroler.py:82
+#: autorole\autoroler.py:94
 msgid "AutoRoler disabled"
+msgstr ""
+
+#: autorole\autoroler.py:100
+msgid "AutoRoler waiting for rules to be accepted enabled"
+msgstr ""
+
+#: autorole\autoroler.py:106
+msgid "AutoRoler waiting for rules to be accepted disabled"
 msgstr ""
